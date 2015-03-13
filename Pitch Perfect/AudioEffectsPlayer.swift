@@ -7,29 +7,94 @@
 //
 
 import UIKit
+import AVFoundation
 
-class AudioEffectsPlayer: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class AudioEffectsPlayer: NSObject {
+    
+    var audioEngine : AVAudioEngine!
+    var effectsPlayer : AVAudioPlayerNode?
+    
+    var filePathURL: NSURL!
+    var audioFile: AVAudioFile?
+    
+    
+    init(filePathURL: NSURL) {
+        self.filePathURL = filePathURL
+        self.audioEngine = AVAudioEngine()
+        self.audioFile = AVAudioFile(forReading: self.filePathURL, error: nil)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+ 
+    
+    func playPitchedAudio(withPitch:Float) -> Void {
+        
+        self.audioEngine.stop()
+        self.audioEngine.reset()
+        
+        self.effectsPlayer = AVAudioPlayerNode()
+        self.effectsPlayer!.volume = 1.0
+        
+        
+        var timePitch = AVAudioUnitTimePitch()
+        timePitch.pitch = withPitch
+        
+        self.audioEngine.attachNode(effectsPlayer)
+        self.audioEngine.attachNode(timePitch)
+        
+        self.audioEngine.connect(effectsPlayer, to: timePitch, format: nil)
+        self.audioEngine.connect(timePitch, to: audioEngine!.outputNode, format: nil)
+        
+        
+        self.effectsPlayer!.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
+        self.audioEngine.startAndReturnError(nil)
+        
+        
+        self.effectsPlayer!.play()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func playAudioEcho() -> Void {
+        
+        self.audioEngine.stop()
+        self.audioEngine.reset()
+        
+        self.effectsPlayer = AVAudioPlayerNode()
+        self.effectsPlayer!.volume = 1.0
+        
+        var echoEffect = AVAudioUnitDelay()
+        var delay: NSTimeInterval = 0.3
+        
+        
+        echoEffect.delayTime = delay
+        
+        self.audioEngine.attachNode(self.effectsPlayer)
+        self.audioEngine.attachNode(echoEffect)
+        
+        
+        self.audioEngine.connect(self.effectsPlayer, to: echoEffect, format: nil)
+        self.audioEngine.connect(echoEffect, to: self.audioEngine.outputNode, format: nil)
+        
+        
+        self.effectsPlayer!.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
+        
+        self.audioEngine.startAndReturnError(nil)
+        
+        self.effectsPlayer!.play()
+    
+    
     }
-    */
+    
+    
+    func stop() -> Void {
+        
+        if(self.effectsPlayer != nil && self.effectsPlayer!.playing)
+            
+        {
+            self.effectsPlayer!.stop()
+        }
+        
+    
+    }
+    
 
 }

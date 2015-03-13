@@ -11,28 +11,35 @@ import AVFoundation
 
 class PlayAudioViewController: UIViewController {
     
-    var audioPlayer: AVAudioPlayer?
     var fileURL: NSURL?
-    var audioFile: AVAudioFile?
-    var audioEngine : AVAudioEngine?
-    var pitchPlayer : AVAudioPlayerNode?
-
+    
+    var audioPlayer: AVAudioPlayer!
+    var audioEffectsPlayer: AudioEffectsPlayer!
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.audioEngine = AVAudioEngine()
-        self.audioFile = AVAudioFile(forReading: self.fileURL, error: nil)
-
+        // Uncomment for testing purposes---------------------------------------------//
+        
+        let bundleLocation  = NSBundle.mainBundle()
+        let examplePath = bundleLocation.URLForResource("movie_quote", withExtension: "mp3")
+        
+        self.fileURL = examplePath
+        
+        ///-------------------------------------------------------------------------//
+        
+        
         // Do any additional setup after loading the view.
-
         
         if(self.fileURL != nil){
             
             var audio: AVAudioPlayer? = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
             
             audio!.enableRate = true
-            
             self.audioPlayer = audio
+            
+            audioEffectsPlayer = AudioEffectsPlayer(filePathURL: fileURL!)
         }
         
         else {
@@ -63,33 +70,6 @@ class PlayAudioViewController: UIViewController {
     }
     
     
-    func playPitchedAudio(withPitch:Float) -> Void {
-        
-        self.audioPlayer?.stop()
-        self.audioEngine!.stop()
-        self.audioEngine!.reset()
-        
-        
-        self.pitchPlayer = AVAudioPlayerNode()
-        var timePitch = AVAudioUnitTimePitch()
-        timePitch.pitch = withPitch
-        
-        //var echo = AVAudioUnitReverb()
-        
-        
-        self.audioEngine!.attachNode(pitchPlayer)
-        self.audioEngine!.attachNode(timePitch)
-        
-        self.audioEngine!.connect(pitchPlayer, to: timePitch, format: nil)
-        self.audioEngine!.connect(timePitch, to: audioEngine!.outputNode, format: nil)
-        
-        
-        self.pitchPlayer!.scheduleFile(self.audioFile, atTime: nil, completionHandler: nil)
-        self.audioEngine!.startAndReturnError(nil)
-        self.pitchPlayer!.play()
-        
-    }
-    
     
     @IBAction func playSlow(sender: UIButton) {
         
@@ -106,25 +86,30 @@ class PlayAudioViewController: UIViewController {
     
     @IBAction func playChipmunked(sender: UIButton) {
         
-        self.playPitchedAudio(1000)
+        self.audioPlayer!.stop()
+        audioEffectsPlayer.playPitchedAudio(1000)
         
     }
     
     @IBAction func playVader(sender: UIButton) {
         
-        self.playPitchedAudio(-1000)
+        self.audioPlayer!.stop()
+        audioEffectsPlayer.playPitchedAudio(-1000)
     }
+    
+    
+    
+    @IBAction func playEcho(sender: UIButton) {
+        self.audioPlayer!.stop()
+        audioEffectsPlayer.playAudioEcho()
+        
+    }
+    
     
 
     @IBAction func stopAllAudio(sender: UIButton) {
         
-        if(self.pitchPlayer != nil && self.pitchPlayer!.playing)
-        
-        {
-            self.pitchPlayer!.stop()
-            
-        }
-        
+        audioEffectsPlayer.stop()
         
         
         if(self.audioPlayer != nil && self.audioPlayer!.playing){

@@ -62,8 +62,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             self.performSegueWithIdentifier( "stopRecording", sender: recordedAudio)
         
         
-        
-        
         }
         
         else {
@@ -77,11 +75,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         
             }
-        
-        
-        
-        
-        
         
         
     }
