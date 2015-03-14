@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8FCB489F1AACEDBF00421BB0 /* PlayAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCB489E1AACEDBF00421BB0 /* PlayAudioViewController.swift */; };
-		8FCB48A11AACFD7900421BB0 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FCB48A01AACFD7900421BB0 /* movie_quote.mp3 */; };
 		8FCCAA7D1AAF8F1800392A72 /* RecordedAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCCAA7C1AAF8F1800392A72 /* RecordedAudio.swift */; };
 		8FCE515E1AB167B300C5E29B /* AudioEffectsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE515D1AB167B300C5E29B /* AudioEffectsPlayer.swift */; };
 		8FD5FB541AA97FBF00C2E4BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD5FB531AA97FBF00C2E4BC /* AppDelegate.swift */; };
@@ -17,6 +16,7 @@
 		8FD5FB5B1AA97FBF00C2E4BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD5FB5A1AA97FBF00C2E4BC /* Images.xcassets */; };
 		8FD5FB5E1AA97FBF00C2E4BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD5FB5C1AA97FBF00C2E4BC /* LaunchScreen.xib */; };
 		8FD5FB6A1AA97FBF00C2E4BC /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD5FB691AA97FBF00C2E4BC /* Pitch_PerfectTests.swift */; };
+		8FE253621AB3A48700447802 /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FE253611AB3A48700447802 /* movie_quote.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,8 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8FCB489E1AACEDBF00421BB0 /* PlayAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayAudioViewController.swift; path = ../PlayAudioViewController.swift; sourceTree = "<group>"; };
-		8FCB48A01AACFD7900421BB0 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = movie_quote.mp3; path = "../../Desktop/itch-Perfect-Assets/movie_quote.mp3"; sourceTree = "<group>"; };
+		8FCB489E1AACEDBF00421BB0 /* PlayAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayAudioViewController.swift; sourceTree = "<group>"; };
 		8FCCAA7C1AAF8F1800392A72 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 		8FCE515D1AB167B300C5E29B /* AudioEffectsPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEffectsPlayer.swift; sourceTree = "<group>"; };
 		8FD5FB4E1AA97FBF00C2E4BC /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +43,7 @@
 		8FD5FB631AA97FBF00C2E4BC /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD5FB681AA97FBF00C2E4BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FD5FB691AA97FBF00C2E4BC /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
+		8FE253611AB3A48700447802 /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 		8FD5FB451AA97FBF00C2E4BC = {
 			isa = PBXGroup;
 			children = (
-				8FCB48A01AACFD7900421BB0 /* movie_quote.mp3 */,
+				8FE253611AB3A48700447802 /* movie_quote.mp3 */,
 				8FD5FB501AA97FBF00C2E4BC /* Pitch Perfect */,
 				8FD5FB661AA97FBF00C2E4BC /* Pitch PerfectTests */,
 				8FD5FB4F1AA97FBF00C2E4BC /* Products */,
@@ -214,7 +214,7 @@
 			files = (
 				8FD5FB591AA97FBF00C2E4BC /* Main.storyboard in Resources */,
 				8FD5FB5E1AA97FBF00C2E4BC /* LaunchScreen.xib in Resources */,
-				8FCB48A11AACFD7900421BB0 /* movie_quote.mp3 in Resources */,
+				8FE253621AB3A48700447802 /* movie_quote.mp3 in Resources */,
 				8FD5FB5B1AA97FBF00C2E4BC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,16 +24,22 @@ class AudioEffectsPlayer: NSObject {
         self.audioFile = AVAudioFile(forReading: self.filePathURL, error: nil)
         
     }
- 
     
-    func playPitchedAudio(withPitch:Float) -> Void {
+    func resetAudioEngine() -> Void {
         
         self.audioEngine.stop()
         self.audioEngine.reset()
         
         self.effectsPlayer = AVAudioPlayerNode()
         self.effectsPlayer!.volume = 1.0
+    
+    }
+ 
+    
+    func playPitchedAudio(withPitch:Float) -> Void {
         
+        
+        self.resetAudioEngine()
         
         var timePitch = AVAudioUnitTimePitch()
         timePitch.pitch = withPitch
@@ -55,11 +61,7 @@ class AudioEffectsPlayer: NSObject {
     
     func playAudioEcho() -> Void {
         
-        self.audioEngine.stop()
-        self.audioEngine.reset()
-        
-        self.effectsPlayer = AVAudioPlayerNode()
-        self.effectsPlayer!.volume = 1.0
+        self.resetAudioEngine()
         
         var echoEffect = AVAudioUnitDelay()
         var delay: NSTimeInterval = 0.3
