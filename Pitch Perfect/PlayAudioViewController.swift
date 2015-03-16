@@ -11,22 +11,19 @@ import AVFoundation
 
 class PlayAudioViewController: UIViewController {
     
+    var audioFile: RecordedAudio!
     var fileURL: NSURL?
     
-    var audioPlayer: AVAudioPlayer!
     var audioEffectsPlayer: AudioEffectsPlayer!
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(self.fileURL != nil){
+        if(self.audioFile.filePathURL != nil){
             
-            var audio: AVAudioPlayer? = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
             
-            audio!.enableRate = true
-            self.audioPlayer = audio
-            
+            self.fileURL = self.audioFile.filePathURL
             audioEffectsPlayer = AudioEffectsPlayer(filePathURL: fileURL!)
         }
         
@@ -44,54 +41,37 @@ class PlayAudioViewController: UIViewController {
     }
     
     
-    func playAudio(atRate:Float) -> Void {
-
-        if(self.audioPlayer != nil){
-            
-            audioEffectsPlayer.audioEngine.stop()
-            audioEffectsPlayer.audioEngine.reset()
-            
-            self.audioPlayer!.rate = atRate
-            self.audioPlayer!.stop()
-            self.audioPlayer?.currentTime = 0.0
-            self.audioPlayer!.play()
-            
-        }
-    
-    }
     
     
     
     @IBAction func playSlow(sender: UIButton) {
         
-        self.playAudio(0.5)
+        audioEffectsPlayer.playAudio(0.5)
         
     }
     
     
     @IBAction func playFast(sender: UIButton) {
         
-        self.playAudio(2.0)
+        audioEffectsPlayer.playAudio(2.0)
         
     }
     
     @IBAction func playChipmunked(sender: UIButton) {
         
-        self.audioPlayer!.stop()
         audioEffectsPlayer.playPitchedAudio(1000)
         
     }
     
     @IBAction func playVader(sender: UIButton) {
         
-        self.audioPlayer!.stop()
         audioEffectsPlayer.playPitchedAudio(-1000)
     }
     
     
     
     @IBAction func playEcho(sender: UIButton) {
-        self.audioPlayer!.stop()
+        
         audioEffectsPlayer.playAudioEcho()
         
     }
@@ -102,11 +82,6 @@ class PlayAudioViewController: UIViewController {
         
         audioEffectsPlayer.stop()
         
-        
-        if(self.audioPlayer != nil && self.audioPlayer!.playing){
-            
-            self.audioPlayer!.stop()
-        }
         
     }
     

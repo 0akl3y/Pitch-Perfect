@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Record Sounds View Controller-->
+        <!--Record Audio-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Record Audio" id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -172,7 +172,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="YY2-g1-UDf"/>
+                    <navigationItem key="navigationItem" title="Record Audio" id="YY2-g1-UDf"/>
                     <connections>
                         <outlet property="pauseRecordButton" destination="tMy-yS-YIf" id="eOw-vU-dMy"/>
                         <outlet property="recordButton" destination="i1C-oY-KgE" id="glt-vJ-8eu"/>
@@ -185,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="1150.5" y="358"/>
         </scene>
-        <!--Play Audio View Controller-->
+        <!--Audio Effects-->
         <scene sceneID="p6q-oZ-dAd">
             <objects>
-                <viewController id="1TN-Oh-Yvm" customClass="PlayAudioViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Audio Effects" id="1TN-Oh-Yvm" customClass="PlayAudioViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FBd-m5-gLt"/>
                         <viewControllerLayoutGuide type="bottom" id="OOj-2o-tOT"/>
@@ -388,20 +388,20 @@
                                 <exclude reference="eIh-YP-3Il"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1Mn-6S-5dZ"/>
-                                <exclude reference="2Dj-LE-f32"/>
-                                <exclude reference="AJX-5r-uqI"/>
-                                <exclude reference="YzW-eW-fBv"/>
-                                <exclude reference="lIa-F3-KQs"/>
-                                <exclude reference="uKe-wD-hwN"/>
                                 <exclude reference="sFz-9J-kfJ"/>
                                 <exclude reference="sgG-D8-zzj"/>
+                                <exclude reference="1Mn-6S-5dZ"/>
+                                <exclude reference="2Dj-LE-f32"/>
+                                <exclude reference="lIa-F3-KQs"/>
+                                <exclude reference="uKe-wD-hwN"/>
                                 <exclude reference="VAb-Um-J69"/>
                                 <exclude reference="YnO-5z-uIQ"/>
                                 <exclude reference="yN3-Cy-uaL"/>
                                 <exclude reference="4G5-0o-OGM"/>
                                 <exclude reference="h9O-1a-i3E"/>
                                 <exclude reference="yuG-lr-IA3"/>
+                                <exclude reference="AJX-5r-uqI"/>
+                                <exclude reference="YzW-eW-fBv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -414,18 +414,18 @@
                                 <include reference="eIh-YP-3Il"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1Mn-6S-5dZ"/>
-                                <include reference="2Dj-LE-f32"/>
-                                <include reference="AJX-5r-uqI"/>
-                                <include reference="YzW-eW-fBv"/>
-                                <include reference="lIa-F3-KQs"/>
-                                <include reference="uKe-wD-hwN"/>
                                 <include reference="sFz-9J-kfJ"/>
                                 <include reference="sgG-D8-zzj"/>
+                                <include reference="1Mn-6S-5dZ"/>
+                                <include reference="2Dj-LE-f32"/>
+                                <include reference="lIa-F3-KQs"/>
+                                <include reference="uKe-wD-hwN"/>
                                 <include reference="yN3-Cy-uaL"/>
                                 <include reference="4G5-0o-OGM"/>
                                 <include reference="h9O-1a-i3E"/>
                                 <include reference="yuG-lr-IA3"/>
+                                <include reference="AJX-5r-uqI"/>
+                                <include reference="YzW-eW-fBv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">

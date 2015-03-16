@@ -51,7 +51,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         if(segue.identifier == "stopRecording"){
             
             let playAudioVC: PlayAudioViewController = segue.destinationViewController as PlayAudioViewController
-            playAudioVC.fileURL = self.recordedAudio.filePathURL
+            playAudioVC.audioFile = sender as RecordedAudio
         
         
         }
@@ -104,7 +104,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
             let pathArray = [dirPath, recordingName]
             let filePath = NSURL.fileURLWithPathComponents(pathArray)
-            println(filePath)
             
             var session = AVAudioSession.sharedInstance()
             session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
