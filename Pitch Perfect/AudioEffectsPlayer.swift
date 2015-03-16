@@ -63,8 +63,9 @@ class AudioEffectsPlayer: NSObject {
     
     func resetAudioEngine() -> Void {
         
-        /*Stop and reset the AVAudioEngine instance to start with a new graph*/
+        /*Stops all audio and resets the AVAudioEngine instance to start with a new graph*/
         
+        self.stop()
         self.audioEngine.stop()
         self.audioEngine.reset()
         
@@ -130,7 +131,7 @@ class AudioEffectsPlayer: NSObject {
     
     
     func stop() -> Void {
-        /*Stop the playback*/
+        /*Stop the playback of all audio*/
         
         
         // stop the effectsPlayer
